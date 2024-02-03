@@ -24,11 +24,18 @@ const App = () => {
     setConvertedAmount(amount * currencyInfo[to]);
   };
 
+  const backgroundImageUrl =
+    "https://images.pexels.com/photos/5980580/pexels-photo-5980580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+  const hasBackgroundImage =
+    backgroundImageUrl && backgroundImageUrl.trim() !== "";
+
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
       style={{
-        backgroundImage: `url('https://images.pexels.com/photos/5980580/pexels-photo-5980580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
+        background: hasBackgroundImage
+          ? `url('${backgroundImageUrl}')`
+          : "black",
       }}>
       <div className="w-full">
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
