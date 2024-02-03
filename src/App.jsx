@@ -5,8 +5,8 @@ import { InputBox } from "./Components";
 import useCurrency from "./hooks/useCurrency";
 const App = () => {
   const [amount, setAmount] = useState(0);
-  const [from, setFrom] = useState("usd");
-  const [to, setTo] = useState("inr");
+  const [from, setFrom] = useState("inr");
+  const [to, setTo] = useState("usd");
   const [convertedAmount, setConvertedAmount] = useState(0);
 
   const currencyInfo = useCurrency(from);
@@ -42,7 +42,7 @@ const App = () => {
                 label="From"
                 amount={amount}
                 currencyOptions={options}
-                onCurrencyChange={currency => setAmount(amount)}
+                onCurrencyChange={currency => setFrom(currency)} // Corrected
                 selectCurrency={from}
                 onAmountChange={amount => setAmount(amount)}
               />
@@ -60,8 +60,8 @@ const App = () => {
                 label="To"
                 amount={convertedAmount}
                 currencyOptions={options}
-                onCurrencyChange={currency => setTo(currency)}
-                selectCurrency={from}
+                onCurrencyChange={currency => setTo(currency)} // Corrected
+                selectCurrency={to} // Use the correct state for selectCurrency
                 amountDisable
               />
             </div>
